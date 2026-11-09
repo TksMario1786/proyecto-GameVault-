@@ -37,7 +37,7 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
             .build()
     }
 
-    private val baseUrl = "http://10.0.2.2:3000/"
+    private val baseUrl = "https://gamevault-sql-api.onrender.com"
     private val json = Json { ignoreUnknownKeys = true }
 
     private val retrofit: Retrofit by lazy {
