@@ -6,19 +6,14 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.gamevault.GameVaultApplication
 import com.example.gamevault.ui.auth.AuthViewModel
+import com.example.gamevault.ui.home.GameFormViewModel
 import com.example.gamevault.ui.home.HomeViewModel
 
 object AppViewModelProvider {
     val Factory = viewModelFactory {
-        initializer {
-            AuthViewModel(authRepository = gameVaultApplication().container.authRepository)
-        }
-        initializer {
-            HomeViewModel(
-                gameRepository = gameVaultApplication().container.gameRepository,
-                authRepository = gameVaultApplication().container.authRepository
-            )
-        }
+        initializer { AuthViewModel(authRepository = gameVaultApplication().container.authRepository) }
+        initializer { HomeViewModel(gameRepository = gameVaultApplication().container.gameRepository, authRepository = gameVaultApplication().container.authRepository) }
+        initializer { GameFormViewModel(gameRepository = gameVaultApplication().container.gameRepository) }
     }
 }
 
